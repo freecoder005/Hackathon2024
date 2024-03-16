@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>STUDENT REGISTRATION FORM</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <form autocomplete="off" method="post" name="google-sheet">
+        <h3><center>REGISTRATION FORM</center></h3>
+
+        <label for="adhaar no."><B>Adhaar no. :</B></label>
+        <input type="number" id="adhaar no." required name="0"><br>
+        <label for="name"><B>Name:</B></label>
+        <input type="text" id="name" required name="1"><br>
+        <label for="dob"><B>DOB :</B></label>
+        <input type="text" id="dob" required name="2"><br>
+
+        <label for="mobile"><B>Mobile no. :</B></label>
+        <input type="text" id="mobile no." required name="3"><br>
+
+        <label for="gender"><b>Gender :</b></label>
+        male
+        <input type="radio"  name="4" value="male">
+        female <input type="radio" name="4" value="female"><br>
+
+        <label for="state"><B>State :</B></label>
+        <input type="text" id="state"  name="5"><br>
+
+        <label for="ADMISSION STATUS"> <b>Admission Status :</b></label>
+        Enrolled <input type="radio" name="6" value="Enrolled">
+        Pending <input type="radio" name="6" value="Pending"><br>
+
+        <label for="PAYMENT STATUS"><b>Payment Status</b></label>
+        Done <input type="radio" name="7" value="Done">
+        Pending <input type="radio" name="7" value="Pending"><br>
+
+        
+
+
+    <button type="submit">Send</button>
+    <button type="reset" class="reset" style="background-color: red;">Reset</button>
+    </form>
+    </div>
+    
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxllnwoUB9hM296IgyCPA9ovU-jDRYLGMIxaxhdCfarV9He8YzCDCShnrtgRQfl-KsnUg/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script> 
+    </body>
